@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html ng-app="CouponManagement">
+<head>
+	<meta charset="UTF-8">
+	<title>login screen</title>
+</head>
+
+<body>
+<div class="wrapper" >
+	<div class="container">
+		<h1>Coupon Management</h1>
+
+		<form class="form" id="loginForm" ng-controller="LoginCtrl"  ng-submit="submit()">
+			<input type="text" placeholder="User Name" ng-model="userName" required>
+			<input type="password" placeholder="Password" ng-model="password" required>
+			<select placeholder="userType" name="userType" id="userType"
+			ng-model="userType" required>
+				<option value="" class='formOption' disabled selected>Select user Type</option>
+				<option value="ADMIN" class='formOption'>Admin</option>
+				<option value="COMPANY" class='formOption'>Company</option>
+				<option value="CUSTOMER" class='formOption'>Customer</option>
+			</select>
+
+			<p id="nameBinding"> {{userName}}</p>
+			<button type="submit" value="submit" id="login-button">Login</button>
+		</form>
+	</div>
+
+</div>
+
+
+</body>
+</html>

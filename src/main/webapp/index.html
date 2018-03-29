@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html ng-app="CouponManagement">
+<head>
+	<meta charset="utf-8" />
+	<title>Coupon System Management By Midhat Shaar</title>
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" />
+	<link href="css/app.css" rel="stylesheet" />
+	<link href="login/style.css" rel="stylesheet" />
+	<link rel="stylesheet" href="login/toastr.css">
+
+</head>
+<body>
+
+	<script src="frameworks/jquery-2.1.4.js"></script>
+	<script src="frameworks/angular.js" type="text/javascript"></script>
+	<script src="frameworks/angular-route.js" type="text/javascript"></script>
+	<script src="frameworks/angular-cookies.js" type="text/javascript"></script>
+	<script src="frameworks/angular-resource.js" type="text/javascript"></script>
+	<script src="frameworks/angular-ui-router.js" type="text/javascript"></script>
+
+	<script src="frameworks/bootstrap.js" type="text/javascript"></script>
+	<script src="frameworks/ui-bootstrap-0.14.3.js" type="text/javascript"></script>
+
+	<script src="frameworks/toastr.js" type="text/javascript"></script>
+
+	<script src="app.js" type="text/javascript"></script>
+
+
+	<script src="home/home.controller.js" type="text/javascript"></script>
+	<script src="login/login.controller.js" type="text/javascript"></script>
+	<script src="login/login.view.html" type="text/html"></script>
+
+	<script src="admin/admin.controller.js" type="text/javascript"></script>
+	<script src="admin/admin.view.html" type="text/html"></script>
+
+	<script src="app-services/companyResource.js" type="text/javascript"></script>
+
+	<script src="company/companyDetailView.html" type="text/html"></script>
+	<script src="company/createCompany.html" type="text/html"></script>
+
+	<script src="company/companyList.html" type="text/html"></script>
+	<script src="company/companyEdit.html" type="text/html"></script>
+
+	<!-- CUSTOMER -->
+	<script src="customer/customerList.html" type="text/html"></script>
+	<script src="customer/createCustomer.html" type="text/html"></script>
+
+	<!--Company VIEW-->
+	<script src="companyUser/company.controller.js" type="text/javascript"></script>
+	<script src="companyUser/companyUser.view.html" type="text/javascript"></script>
+	<script src="companyCoupon/companyCouponList.html" type="text/html"></script>
+	<script src="companyCoupon/createCoupon.html" type="text/html"></script>
+
+	 <!--Customer VIEW-->
+	<script src="customerUser/customer.controller.js" type="text/javascript"></script>
+	<script src="customerUser/customerUser.view.html" type="text/html"></script>
+	<script src="customerUser/purchaseCoupon.html" type="text/html"></script>
+	<script src="customerUser/customerCouponList.html" type="text/html"></script>
+
+
+	<div class="container">
+		<div ui-view></div>
+	</div>
+
+</body>
+</html>
+
+
+
+
+

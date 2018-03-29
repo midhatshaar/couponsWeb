@@ -1,0 +1,45 @@
+<div ng-app="CouponManagement">
+    <nav class="navbar navbar-inverse">
+        <div class="container">
+            <a class="navbar-brand"
+               ui-sref="home">
+                <i class="glyphicon glyphicon-user"></i>
+                Customer Page</a>
+            <div class="navbar-header">
+                <button type="button"
+                        class="navbar-toggle"
+                        data-toggle="collapse"
+                        data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a ui-sref="customerCouponList">
+                        <i class="glyphicon glyphicon-list"></i>
+                        My Coupons</a></li>
+                    <li><a ui-sref="purchaseCoupon">
+                        <i class="glyphicon glyphicon-tag"></i>
+                        Purchase Coupons</a>
+                    </li>
+
+                </ul>
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#"><span class="glyphicon glyphicon-log-out"></span>Logout  </a></li>
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+
+    <img ng-src="http://www.nttec.com/images/button_login_top.png">
+
+    <div class="container">
+        <div ui-view></div>
+    </div>
+</div>
+

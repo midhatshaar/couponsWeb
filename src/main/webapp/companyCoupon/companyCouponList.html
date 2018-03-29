@@ -1,0 +1,104 @@
+<div class="panel panel-primary">
+    <div class="panel-heading"
+         style="font-size:large">My Coupons
+    </div>
+    <br>
+    <span>
+        <button class="btn btn-primary"
+                ui-sref="Company"
+                style="width:80px;margin-right:10px">
+            Back
+        </button>
+    </span>
+
+   <div class="panel-body">
+        <label>Any:
+            <input class="form-control"
+               id="couponFilter"
+               name="couponFilter"
+               type="search"
+               placeholder="Filter coupons..."
+               ng-model="couponFilter.any"
+               ng-init=""
+                >
+        </label>
+        <label>By Type:
+            <input class="form-control"
+                   type="search"
+                   ng-model="couponFilter.type"
+                   placeholder="Filter coupons By Type..."
+                   ng-init=""
+                    >
+        </label>
+    <label>By Price:
+        <input class="form-control"
+               type="search"
+               ng-model="couponFilter.price"
+               placeholder="Filter coupons By Price..."
+               ng-init=""
+                >
+    </label>
+
+
+
+
+        <table class="table">
+
+            <thead>
+            <tr>
+                <td>Title</td>
+                <td>ID</td>
+                <td>Start Date</td>
+                <td>End Date</td>
+                <td>Amount</td>
+                <td>Message</td>
+                <td>Price</td>
+                <td>Type</td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="coupon in coupons.coupon | filter:couponFilter.any | filter:{type: couponFilter.type} | filter:{price: couponFilter.price} ">
+                <td>
+                    <a ui-sref="companyDetails({id: company.id})">
+                        {{coupon.title}}</a>
+                </td>
+                <td>{{coupon.id}}</td>
+                <td>{{coupon.startDate | date:'medium'}}</td>
+                <td>{{coupon.endDate | date:'medium'}}</td>
+                <td>{{coupon.amount}}</td>
+                <td>{{coupon.message}}</td>
+                <td>{{coupon.price}}</td>
+                <td>{{coupon.type}}</td>
+
+                <td>
+                    <a class="btn btn-primary"
+                       role="button"
+                       data-toggle="collapse"
+                       data-target="#collapseExample"
+                       aria-expanded="false"
+                       aria-controls="collapseExample">
+                        <!--ui-sref="companyList.editCompany({company: company})">-->
+                        <i class="glyphicon glyphicon-edit"></i>
+                        Edit
+                    </a>
+
+                    <div class="collapse" id="collapseExample">
+                        <div class="well">
+                            <span>Coupon Title: </span>
+                            {{coupon.title}}
+                        </div>
+                    </div>
+
+                </td>
+                <td>
+                    <a class="btn btn-danger"
+                       ng-click="removeCoupon(coupon)">
+                        <i class="glyphicon glyphicon-remove-circle"></i>
+                        Delete
+                    </a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

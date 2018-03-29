@@ -1,0 +1,115 @@
+<form class="form-horizontal" name="CompanyForm"
+      novalidate>
+    <fieldset>
+        <legend>Edit Company</legend>
+        <div class="form-group"
+             ng-class="{'has-error':CompanyForm.companyName.$invalid &&
+                                    CompanyForm.companyName.$dirty}">
+            <label class="col-md-2 control-label"
+                   for="companyName">Company Name</label>
+
+            <div class="col-md-4">
+                <input class="form-control"
+                       id="companyName"
+                       name="companyName"
+                       type="text"
+                       placeholder="Company Name (required)"
+                       ng-model="company.companyName"
+                       required
+                       ng-minlength="4"
+                       ng-maxlength="12"/>
+            </div>
+            <span class="help-block has-error">
+                <span ng-show="CompanyForm.companyName.$error.required">
+                    Company name is required.
+                </span>
+                <span ng-show="CompanyForm.companyName.$error.minlength">
+                    Company name must be at least 4 characters in length.
+                </span>
+                <span ng-show="CompanyForm.companyName.$error.maxlength">
+                    Company name cannot exceed 12 characters in length.
+                </span>
+            </span>
+        </div>
+        <div class="form-group"
+             ng-class="{'has-error':CompanyForm.companyId.$invalid &&
+                                    CompanyForm.companyId.$dirty}">
+            <label class="col-md-2 control-label" for="companyId">ID</label>
+
+            <div class="col-md-4">
+                <input class="form-control"
+                       id="companyId"
+                       name="companyId"
+                       type="number"
+                       ui-mask="AAA-**** (required)"
+                       ng-model="company.companyId"
+                       required>
+            </div>
+            <span class="help-block has-error"
+                  ng-show="CompanyForm.companyId.$invalid ">
+                    Company ID is required
+            </span>
+        </div>
+        <div class="form-group"
+             ng-class="{'has-error':CompanyForm.password.$invalid &&
+                                    CompanyForm.password.$dirty}">
+            <label class="col-md-2 control-label" for="password">Password</label>
+
+            <div class="col-md-4">
+                <input class="form-control"
+                       id="password"
+                       name="password"
+                       type="password"
+                       ui-mask="AAA-**** (required)"
+                       ng-model="company.password"
+                       required>
+            </div>
+            <span class="help-block has-error"
+                  ng-show="CompanyForm.password.$invalid ">
+                    Password is required
+            </span>
+        </div>
+        <div class="form-group"
+             ng-class="{'has-error':CompanyForm.email.$invalid &&
+                                    CompanyForm.email.$dirty}">
+            <label class="col-md-2 control-label" for="email">Email</label>
+
+            <div class="col-md-4">
+                <input class="form-control"
+                       id="email"
+                       name="email"
+                       type="email"
+                       ui-mask="AAA-**** (required)"
+                       ng-model="company.email"
+                       required>
+            </div>
+            <span class="help-block has-error"
+                  ng-show="CompanyForm.email.$invalid ">
+                    Email is required
+            </span>
+        </div>
+
+
+        <div class="form-group">
+            <div class="col-md-4 col-md-offset-2">
+                    <span>
+                        <button class="btn btn-primary"
+                                style="width:80px;margin-right:10px"
+                                ng-click="submit(CompanyForm.$valid)"
+                                ng-disabled="CompanyForm.$invalid">
+                            Save
+                        </button>
+                    </span>
+                    <span>
+                        <button class="btn btn-default"
+                                style="width:70px"
+                                ng-click="cancel()">
+                            Cancel
+                        </button>
+                    </span>
+            </div>
+        </div>
+
+    </fieldset>
+</form>
+

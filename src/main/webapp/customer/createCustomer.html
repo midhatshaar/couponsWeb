@@ -1,0 +1,96 @@
+<form class="form-horizontal" name="CustomerForm"
+      novalidate>
+    <fieldset>
+        <legend>Create New Customer</legend>
+        <div class="form-group"
+             ng-class="{'has-error':CustomerForm.customerName.$invalid &&
+                                    CustomerForm.customerName.$dirty}">
+            <label class="col-md-2 control-label"
+                   for="customerName">Customer Name</label>
+
+            <div class="col-md-4">
+                <input class="form-control"
+                       id="customerName"
+                       name="customerName"
+                       type="text"
+                       placeholder="Customer Name (required)"
+                       ng-model="customer.customerName"
+                       required
+                       ng-minlength="2"
+                       ng-maxlength="10"/>
+            </div>
+            <span class="help-block has-error">
+                <span ng-show="CustomerForm.customerName.$error.required">
+                    Customer name is required.
+                </span>
+                <span ng-show="CustomerForm.customerName.$error.minlength">
+                    Customer name must be at least 2 characters in length.
+                </span>
+                <span ng-show="CustomerForm.customerName.$error.maxlength">
+                    Customer name cannot exceed 10 characters in length.
+                </span>
+            </span>
+        </div>
+        <div class="form-group"
+             ng-class="{'has-error':CustomerForm.customerId.$invalid &&
+                                    CustomerForm.customerId.$dirty}">
+            <label class="col-md-2 control-label" for="customerId">ID</label>
+
+            <div class="col-md-4">
+                <input class="form-control"
+                       id="customerId"
+                       name="customerId"
+                       type="number"
+                       ui-mask="AAA-**** (required)"
+                       ng-model="customer.customerId"
+                       required>
+            </div>
+            <span class="help-block has-error"
+                  ng-show="CustomerForm.customerId.$invalid ">
+                    Customer ID is required
+            </span>
+        </div>
+        <div class="form-group"
+             ng-class="{'has-error':CustomerForm.password.$invalid &&
+                                    CustomerForm.password.$dirty}">
+            <label class="col-md-2 control-label" for="password">Password</label>
+
+            <div class="col-md-4">
+                <input class="form-control"
+                       id="password"
+                       name="password"
+                       type="password"
+                       ui-mask="AAA-**** (required)"
+                       ng-model="customer.password"
+                       required>
+            </div>
+            <span class="help-block has-error"
+                  ng-show="CustomerForm.password.$invalid ">
+                    Password is required
+            </span>
+        </div>
+
+
+        <div class="form-group">
+            <div class="col-md-4 col-md-offset-2">
+                    <span>
+                        <button class="btn btn-primary"
+                                style="width:80px;margin-right:10px"
+                                ng-click="submit(CustomerForm.$valid)"
+                                ng-disabled="CustomerForm.$invalid">
+                            Save
+                        </button>
+                    </span>
+                    <span>
+                        <button class="btn btn-default"
+                                style="width:70px"
+                                ng-click="cancel()">
+                            Cancel
+                        </button>
+                    </span>
+            </div>
+        </div>
+
+    </fieldset>
+</form>
+

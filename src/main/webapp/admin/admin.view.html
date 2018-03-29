@@ -1,0 +1,52 @@
+<div ng-app="CouponManagement">
+<nav class="navbar navbar-inverse">
+    <div class="container">
+        <a class="navbar-brand"
+           ui-sref="home">
+            <i class="glyphicon glyphicon-eye-open"></i>
+            Admin Page</a>
+        <div class="navbar-header">
+            <button type="button"
+                    class="navbar-toggle"
+                    data-toggle="collapse"
+                    data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a ui-sref="companyList">
+                    <i class="glyphicon glyphicon-list"></i>
+                    Company List</a></li>
+                <li><a ui-sref="createCompany">
+                    <i class="glyphicon glyphicon-plus"></i>
+                    New Company</a>
+                </li>
+                <li><a ui-sref="customerList">
+                    <i class="glyphicon glyphicon-list"></i>
+                    Customer List</a></li>
+                <li><a ui-sref="createCustomer">
+                    <i class="glyphicon glyphicon-plus"></i>
+                    New Customer</a>
+                </li>
+
+            </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#"><span class="glyphicon glyphicon-log-out"></span> Logout  </a></li>
+            </ul>
+
+        </div>
+    </div>
+</nav>
+
+    <img ng-src="http://www.agsdwarka.com/Online_Form/admin_login.gif">
+
+<div class="container">
+    <div ui-view></div>
+</div>
+</div>
+

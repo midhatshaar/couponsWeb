@@ -1,0 +1,102 @@
+<div class="panel panel-primary">
+    <div class="panel-heading"
+         style="font-size:large">Customer
+        List
+    </div>
+    <br>
+    <span>
+        <button class="btn btn-primary"
+                ui-sref="Admin"
+                style="width:80px;margin-right:10px">
+            Back
+        </button>
+    </span>
+    <div class="panel-body">
+        <input class="form-control"
+               id="customerFilter"
+               name="customerFilter"
+               type="search"
+               placeholder="Filter customers..."
+               ng-model="customerFilter"
+               ng-init="";
+                >
+
+        <table class="table">
+
+            <thead>
+            <tr>
+                <td>Customer</td>
+                <td>ID</td>
+                <td>Password</td>
+                <td>Coupons</td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="customer in customers.customer | filter: customerFilter ">
+                <td>
+                        {{customer.name}}</a>
+                </td>
+                <td>{{customer.id}}</td>
+                <td>{{customer.password}}</td>
+                <td>
+                    <button type="button"
+                            class="btn btn-primary"
+                            data-toggle="modal"
+                            data-target="#myModal"
+                            >
+                        Coupons
+                    </button>
+
+                    <!-- Modal -->
+                    <div id="myModal" class="modal fade" role="dialog">
+                        <div class="modal-dialog">
+
+                            <!-- Modal content-->
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    <h4 class="modal-title">Modal Header</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <p>
+                                        <span>
+                                            Coupon Name:
+                                        </span>
+                                        {{customer.customerCoupons[0].title}}
+                                    </p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </td>
+
+
+
+
+                <td>
+                    <a class="btn btn-primary"
+                    data-toggle="modal"
+                    data-target="#editCompany">
+                    <!--ui-sref="companyList.editCompany({company: company})"-->
+                    <i class="glyphicon glyphicon-edit"></i>
+                    Edit
+                    </a>
+                </td>
+                <td>
+                    <a class="btn btn-danger"
+                       ng-click="removeCust(customer)">
+                        <i class="glyphicon glyphicon-remove-circle"></i>
+                        Delete
+                    </a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>

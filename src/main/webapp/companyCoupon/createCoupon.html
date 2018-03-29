@@ -1,0 +1,210 @@
+<form class="form-horizontal" name="CouponForm"
+      novalidate>
+    <fieldset>
+        <legend>Create Coupon</legend>
+        <div class="form-group"
+             ng-class="{'has-error':CouponForm.couponTitle.$invalid &&
+                                    CouponForm.couponTitle.$dirty}">
+            <label class="col-md-2 control-label"
+                   for="couponTitle">Coupon Title</label>
+
+            <div class="col-md-4">
+                <input class="form-control"
+                       id="couponTitle"
+                       name="couponTitle"
+                       type="text"
+                       placeholder="Coupon Title (required)"
+                       ng-model="coupon.couponTitle"
+                       required
+                       ng-minlength="4"
+                       ng-maxlength="12"/>
+            </div>
+            <span class="help-block has-error">
+                <span ng-show="CouponForm.couponTitle.$error.required">
+                    Coupon title is required.
+                </span>
+                <span ng-show="CouponForm.couponTitle.$error.minlength">
+                    Coupon title must be at least 4 characters in length.
+                </span>
+                <span ng-show="CouponForm.couponTitle.$error.maxlength">
+                    Coupon title cannot exceed 12 characters in length.
+                </span>
+            </span>
+        </div>
+        <div class="form-group"
+             ng-class="{'has-error':CouponForm.couponId.$invalid &&
+                                    CouponForm.couponId.$dirty}">
+            <label class="col-md-2 control-label" for="couponId">ID</label>
+
+            <div class="col-md-4">
+                <input class="form-control"
+                       id="couponId"
+                       name="couponId"
+                       type="number"
+                       ui-mask="AAA-**** (required)"
+                       ng-model="coupon.couponId"
+                       required>
+            </div>
+            <span class="help-block has-error"
+                  ng-show="CouponForm.couponId.$invalid ">
+                    Coupon ID is required
+            </span>
+        </div>
+
+        <div class="form-group"
+             ng-class="{'has-error':CouponForm.couponStartDate.$invalid &&
+                                    CouponForm.couponStartDate.$dirty}">
+            <label class="col-md-2 control-label" for="couponStartDate">Start Date</label>
+
+            <div class='col-sm-6'>
+                    <div class="form-group">
+                        <div class='input-group date' >
+                            <input class="form-control"
+                                   id="couponStartDate"
+                                   name="couponStartDate"
+                                   type="date"
+                                   ng-model="coupon.couponStartDate"
+                                   required>
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                        </div>
+                        <span class="help-block has-error"
+                              ng-show="CouponForm.couponStartDate.$invalid ">
+                    Coupon Start Date is required
+            </span>
+                    </div>
+                </div>
+        </div>
+
+        <div class="form-group"
+             ng-class="{'has-error':CouponForm.couponEndDate.$invalid &&
+                                    CouponForm.couponEndDate.$dirty}">
+            <label class="col-md-2 control-label" for="couponEndDate">End Date</label>
+
+            <div class='col-sm-6'>
+                <div class="form-group">
+                    <div class='input-group date' >
+                        <input class="form-control"
+                               id="couponEndDate"
+                               name="couponEndDate"
+                               type="date"
+                               ng-model="coupon.couponEndDate"
+                               required>
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                    </div>
+                        <span class="help-block has-error"
+                              ng-show="CouponForm.couponEndDate.$invalid ">
+                    Coupon End Date is required
+            </span>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group"
+             ng-class="{'has-error':CouponForm.couponAmount.$invalid &&
+                                    CouponForm.couponAmount.$dirty}">
+            <label class="col-md-2 control-label" for="couponAmount">Amount</label>
+
+            <div class="col-md-4">
+                <input class="form-control"
+                       id="couponAmount"
+                       name="couponAmount"
+                       type="number"
+                       ng-model="coupon.couponAmount"
+                       required>
+            </div>
+            <span class="help-block has-error"
+                  ng-show="CouponForm.couponAmount.$invalid ">
+                    Amount is required
+            </span>
+        </div>
+
+        <div class="form-group"
+             ng-class="{'has-error':CouponForm.couponType.$invalid &&
+                                    CouponForm.couponType.$dirty}">
+            <label class="col-md-2 control-label" for="couponType">Coupon Type</label>
+
+            <div class="col-md-4">
+                <select class="form-control"
+                       id="couponType"
+                       name="couponType"
+                       ng-model="coupon.couponType"
+                       required>
+                    <option value="" class='formOption' disabled selected>Select coupon Type</option>
+                    <option value="RESTURANS" class='formOption'>RESTURANS</option>
+                    <option value="ELECTRICITY" class='formOption'>ELECTRICITY</option>
+                    <option value="FOOD" class='formOption'>FOOD</option>
+                    <option value="HEALTH" class='formOption'>HEALTH</option>
+                    <option value="SPORTS" class='formOption'>SPORTS</option>
+                    <option value="CAMPING" class='formOption'>CAMPING</option>
+                    <option value="TRAVELLING" class='formOption'>TRAVELLING</option>
+                </select>
+            </div>
+            <span class="help-block has-error"
+                  ng-show="CouponForm.couponType.$invalid ">
+                    Type is required
+            </span>
+        </div>
+
+        <div class="form-group">
+            <label class="col-md-2 control-label" for="couponMessage">Message</label>
+
+            <div class="col-md-4">
+                <textarea class="form-control"
+                       rows="5"
+                       id="couponMessage"
+                       name="couponMessage"
+                       type="text"
+                       ng-model="coupon.couponMessage"
+                       required>
+                </textarea>
+            </div>
+        </div>
+
+        <div class="form-group"
+             ng-class="{'has-error':CouponForm.couponPrice.$invalid &&
+                                    CouponForm.couponPrice.$dirty}">
+            <label class="col-md-2 control-label" for="couponPrice">Price</label>
+
+            <div class="col-md-4">
+                <input class="form-control"
+                       id="couponPrice"
+                       name="couponPrice"
+                       type="number"
+                       ng-model="coupon.couponPrice"
+                       required>
+            </div>
+            <span class="help-block has-error"
+                  ng-show="CouponForm.couponPrice.$invalid ">
+                    Coupon Price is required
+            </span>
+        </div>
+
+
+        <div class="form-group">
+            <div class="col-md-4 col-md-offset-2">
+                    <span>
+                        <button class="btn btn-primary"
+                                style="width:80px;margin-right:10px"
+                                ng-click="submit(CouponForm.$valid)"
+                                ng-disabled="CouponForm.$invalid">
+                            Save
+                        </button>
+                    </span>
+                    <span>
+                        <button class="btn btn-default"
+                                style="width:70px"
+                                ng-click="cancel()">
+                            Cancel
+                        </button>
+                    </span>
+            </div>
+        </div>
+
+    </fieldset>
+</form>
+

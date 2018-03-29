@@ -1,0 +1,82 @@
+<div class="panel panel-primary">
+    <div class="panel-heading"
+         style="font-size:large">Company
+        List
+    </div>
+    <br>
+    <span>
+        <button class="btn btn-primary"
+                ui-sref="Admin"
+                style="width:80px;margin-right:10px">
+            Back
+        </button>
+    </span>
+    <div class="panel-body">
+        <input class="form-control"
+               id="companyFilter"
+               name="companyFilter"
+               type="search"
+               placeholder="Filter companies..."
+               ng-model="companyFilter"
+               ng-init="";
+                >
+
+        <table class="table">
+
+            <thead>
+            <tr>
+                <td>Company</td>
+                <td>ID</td>
+                <td>Email</td>
+                <td>Password</td>
+                <td>Coupons</td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="company in companies.company | filter: companyFilter ">
+                <td>
+                    <a ui-sref="companyDetails({id: company.id})">
+                        {{company.compName}}</a>
+                </td>
+                <td>{{company.id}}</td>
+                <td>{{company.email}}</td>
+                <td>{{company.password}}</td>
+                <td>
+                    <button type="button"
+                            class="btn btn-primary"
+                            ng-click="">
+                        Coupons
+                    </button>
+                </td>
+                <td>
+                    <a class="btn btn-primary"
+                       role="button"
+                       data-toggle="collapse"
+                       data-target="#collapseExample"
+                       aria-expanded="false"
+                       aria-controls="collapseExample">
+                    <!--ui-sref="companyList.editCompany({company: company})">-->
+                    <i class="glyphicon glyphicon-edit"></i>
+                    Edit
+                    </a>
+
+                    <div class="collapse" id="collapseExample">
+                        <div class="well">
+                            <span>Company Name: </span>
+                            {{company.compName}}
+                        </div>
+                    </div>
+
+                </td>
+                <td>
+                    <a class="btn btn-danger"
+                       ng-click="removeComp(company)">
+                        <i class="glyphicon glyphicon-remove-circle"></i>
+                        Delete
+                    </a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
